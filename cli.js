@@ -1,5 +1,5 @@
 const { program } = require('commander');
-const api =require('./index')
+const api =require('./index.js')
 program.version('0.0.1');
 
 program.option('-x, --xxx', 'output')
