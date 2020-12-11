@@ -1,6 +1,8 @@
+#!/usr/bin/env node
 const { program } = require('commander');
 const api =require('./index.js')
-program.version('0.0.1');
+const pkg=require('./package.json')
+program.version(pkg.version);
 
 program
     .command('add')
@@ -33,12 +35,8 @@ program
     });
 
 
-program
-    .command('show')
-    .description('show all tasks')
-    .action(() => {
-        api.showAll();
-    });
-
+if(process.argv.length===2){
+    void api.showAll()
+}else{
     program.parse(process.argv);
-
+}
